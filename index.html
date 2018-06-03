@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RxJS</title>
+  <style>
+    .click-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 300px;
+      height: 200px;
+      border: 1px solid green;
+      background-color: lightgrey;
+    }
+  </style>
+</head>
+<body>
+  <div class="click-block">
+    <div>Сlick here</div>
+  </div>
+  <br>
+  <button class="button">Button</button>
+  <br>
+  <p>Code: <span class="morse"></span></p>
+  <p>Translate: <span class="translate"></span></p>
+  
+  <script src="https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+  <script src="./js/morseSymbols.js"></script>
+
+  <!-- procedural -->
+  <!-- <script src="./js/click.js"></script> -->
+
+  <!-- reactive -->
+  <script src="./js/mouse.js"></script>
+</body>
+</html>
