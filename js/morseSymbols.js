@@ -1,4 +1,4 @@
-let morseSymbols = {  
+let morseSymb = {  
   "-----": "0",
   ".----": "1",
   "..---": "2",
