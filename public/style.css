@@ -1,0 +1,69 @@
+body {
+  font-family: 'Overpass Mono', monospace;
+  font-size: 16px;
+}
+
+.main-title span{
+  color: #f93333;
+}
+
+.symbols-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.symbol-item {
+  width: 60px;
+  height: 60px;
+  padding: 0.63rem;
+  /* outline: 1px solid red; */
+  text-align: center;
+}
+
+.symbol-item .symbol {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+.symbol-item .code {
+  font-weight: bold;
+  color: #f93333;
+}
+
+.action-code {
+  display: flex;
+  margin: 1rem 0;
+  align-items: center;
+}
+
+.action-code .output {
+  font-size: 1.8rem;
+  padding-left: 1em;
+}
+
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 1em 2em;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: .12em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #007cbb;
+  border-radius: .125rem;
+  border: 1px solid #0077b7;
+  cursor: pointer;
+}
+
+.button:active {
+  box-shadow: 0 1px 0 0 #0094d2 inset;
+}
+
+.button:hover {
+  background-color: #004a70;
+  color: #e1f1f6;
+}

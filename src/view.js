@@ -4,7 +4,7 @@ let app = document.querySelector(`#app`);
 
 let renderHeading = () => {
   return `<h1 class="main-title">M<span>o</span>rse C<span>o</span>de</h1>`
-}
+};
 
 let renderTableSymbols = (symbols) => {
   return `<div class="symbols-list">
@@ -16,6 +16,13 @@ let renderTableSymbols = (symbols) => {
             }
           ).join('')}
           </div>`;
+};
+
+let renderActionBlock = () => {
+  return `<div class="action-code">
+            <button class="button">Click</button>
+            <div class="output">Output to result</div>
+          </div>`;
 }
 
-app.innerHTML = `${renderHeading()} ${renderTableSymbols(morseSymbols)}`;
+app.innerHTML = `${renderHeading()} ${renderActionBlock()} ${renderTableSymbols(morseSymbols)}`;
