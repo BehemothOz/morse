@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Morse</title>
+  <link href="https://fonts.googleapis.com/css?family=Overpass+Mono:400,700" rel="stylesheet">
   <style>
+body {
+  font-family: 'Overpass Mono', monospace;
+  font-size: 16px;
+}
+
     .click-block {
       display: flex;
       align-items: center;
@@ -39,11 +45,51 @@
     .td:last-of-type {
       border-left: none;
     }
+
+    .symbols-list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .symbol-item {
+      padding: 0.63rem;
+      outline: 1px solid red;
+      text-align: center;
+    }
+
+    .symbol-item .symbol {
+      font-size: 1.5rem;
+    }
+
+    .symbol-item .code {
+      font-weight: bold;
+      color: #f93333;
+    }
   </style>
 </head>
 <body>
   <div id="app"></div>
 
+
+  <!-- <div>
+    <div></div>
+
+  </div> -->
+  <!-- <div class="symbols-list">
+    <div class="symbol-item">
+      <div class="symbol">J</div>
+      <div class="code">.---</div>
+    </div>
+    <div class="symbol-item">
+      <div class="symbol">8</div>
+      <div class="code">---..</div>
+    </div>
+  </div> -->
+
+  <!-- "": "8",
+  "----.": "9",
+  "": "j",
+  "-.-": "k", -->
 
   <!-- <div class="click-block">
     <div>Сlick here</div>
