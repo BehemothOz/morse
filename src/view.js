@@ -2,25 +2,15 @@ import { morseSymbols } from './morseSymbols';
 
 let app = document.querySelector(`#app`);
 
-// const renderTableSymbols = (symbols) => {
-//   return `<table class="table">
-//           ${Object.entries(symbols).map(([key, value], i) => {
-//             // console.log(i)
-//             return `<tr>
-//                       <td>${key}</td>
-//                       <td>${value}</td>
-//                     </tr>`;
-//             }
-//           ).join('')}
-//           </table>`;
-// }
+let renderHeading = () => {
+  return `<h1 class="main-title">M<span>o</span>rse C<span>o</span>de</h1>`
+}
 
-const renderTableSymbols = (symbols) => {
+let renderTableSymbols = (symbols) => {
   return `<div class="symbols-list">
-          ${Object.entries(symbols).map(([key, value], i) => {
-            // console.log(i)
+          ${Object.entries(symbols).map(([key, value]) => {
             return `<div class="symbol-item">
-                      <div class="symbol">${value}</div>
+                      <div class="symbol">${value.toUpperCase()}</div>
                       <div class="code">${key}</div>
                     </div>`;
             }
@@ -28,8 +18,4 @@ const renderTableSymbols = (symbols) => {
           </div>`;
 }
 
-app.innerHTML = renderTableSymbols(morseSymbols);
-
-// let renderToDom = (state) => {
-//   app.innerHTML = renderSelectedScreen(state);
-// }
+app.innerHTML = `${renderHeading()} ${renderTableSymbols(morseSymbols)}`;
