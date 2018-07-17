@@ -1,14 +1,15 @@
 "use strict;"
 
-import { map, filter, scan, flatMap, delay, first } from 'rxjs/operators';
+import { map, filter, scan, flatMap, delay, first, buffer } from 'rxjs/operators';
 import { Observable, Subject, fromEvent, pipe, of, from, merge, interval } from 'rxjs';
+import { morseSymbols } from './morseSymbols';
 
 // let O = Rx.Observable;
 
 let clickBlock = document.querySelector('.click-block'),
     button = document.querySelector('.button'),
     morse = document.querySelector('.morse'),
-    translate = document.querySelector('.translate');
+    translate = document.querySelector('.output');
 
 
 // За единицу времени принимается длительность одной точки.
@@ -50,16 +51,20 @@ let mouseEnd = mouseUp.pipe(map(() => new Date().getTime()));
 */
 
 let mouseDelay = mouseStart.pipe(flatMap(timeStart => {
-  return mouseEnd.pipe(map(timeEnd => timeEnd - timeStart), first());
+  return mouseEnd.pipe(
+          map(timeEnd => timeEnd - timeStart),
+          first()
+        );
 }));
-mouseDelay.subscribe(x => console.log(x));
+
 
 /*
   4. Задача: Точка или тире?
 */
 
-// let dotOrDash = mouseDelay.map(delay => delay >= dashSpan ? dash : dot);
-
+let dotOrDash = mouseDelay.pipe(
+                  map(delay => delay >= dashSpan ? dash : dot)
+);
 
 /*
   5. Задача: Пуза
@@ -68,33 +73,41 @@ mouseDelay.subscribe(x => console.log(x));
   5.2 Отфильтровать для letterSpan
 */
 
-// let pauseDelay = mouseEnd.flatMap(end => {
-//   return mouseStart.map(start => start - end).first();
-// });
+let pauseDelay = mouseEnd.pipe(flatMap(end => {
+  let timeout = of(letterSpan).pipe(delay(letterSpan))
+  let starts = mouseStart.pipe(map(start => start - end));
 
-// let pauseForLetter = pauseDelay.filter(delay => delay >= letterSpan).map(() => letterSpan);
+  return merge(timeout, starts).pipe(first());
+}));
+
+let pauseForLetter = pauseDelay.pipe(
+                        filter(delay => delay >= letterSpan),
+                        map(() => letterSpan)
+);
 
 
 /*
   6. Задача: Собрать все символы до паузы
 */
 
-// let morseSymbols = dotOrDash.buffer(pauseForLetter);
-// morseSymbols.subscribe(x => console.log(x));
+let morseSymbols$ = dotOrDash.pipe(buffer(pauseForLetter));
+morseSymbols$.subscribe(x => console.log(x));
 
 /*
   7. Задача: Найти соответствие буквы и набранного кода в таблице
 */
 
-// let streamLetter = morseSymbols.map(x => x.join('')).map(x => morseSymb[x]);
+let streamLetter$ = morseSymbols$.pipe(
+                    map(x => x.join('')),
+                    map(x => morseSymbols[x])
+);
 
 
 /*
   8. Задача: Выввести в DOM для проверки
 */
 
-// streamLetter.subscribe(x => {
-//   // let str = translate.textContent;
-//   translate.textContent += x;
-// });
+streamLetter$.subscribe(x => {
+  translate.textContent += x;
+});
 
