@@ -1,3 +1,5 @@
+"use strict;"
+
 import { morseSymbols } from './morseSymbols';
 
 let app = document.querySelector(`#app`);

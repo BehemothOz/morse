@@ -10,13 +10,14 @@ body {
 .symbols-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .symbol-item {
   width: 60px;
   height: 60px;
   padding: 0.63rem;
-  /* outline: 1px solid red; */
+  outline: 1px solid red;
   text-align: center;
 }
 
