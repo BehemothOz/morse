@@ -1,16 +1,11 @@
 "use strict;"
 
-import { map, filter, scan, flatMap, delay, first, buffer } from 'rxjs/operators';
-import { Observable, Subject, fromEvent, pipe, of, from, merge, interval } from 'rxjs';
+import { map, filter, flatMap, delay, first, buffer } from 'rxjs/operators';
+import { fromEvent, pipe, of, merge } from 'rxjs';
 import { morseSymbols } from './morseSymbols';
 
-// let O = Rx.Observable;
-
-let clickBlock = document.querySelector('.click-block'),
-    button = document.querySelector('.button'),
-    morse = document.querySelector('.morse'),
-    translate = document.querySelector('.output');
-
+let button = document.querySelector('.button'),
+    translate = document.querySelector('.output span');
 
 // За единицу времени принимается длительность одной точки.
 // Длительность тире равна трём точкам.
@@ -26,7 +21,7 @@ let dotSpan = span; // Длительность точки
 let dashSpan = span * 3; // Длительность тире
 
 let letterSpan = span * 3; // Пауза между буквами
-let wordSpan = span * 7; // Пауза между словами
+// let wordSpan = span * 7; // Пауза между словами
 
 
 /*

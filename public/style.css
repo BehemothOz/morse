@@ -3,7 +3,12 @@ body {
   font-size: 16px;
 }
 
-.main-title span{
+#app {
+  max-width: 1043px;
+  margin: 0 auto;
+}
+
+.main-title span {
   color: #f93333;
 }
 
@@ -11,13 +16,15 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 1060px;
+  margin: 0 auto;
 }
 
 .symbol-item {
   width: 60px;
   height: 60px;
   padding: 0.63rem;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   text-align: center;
 }
 
@@ -34,7 +41,7 @@ body {
 
 .action-code {
   display: flex;
-  margin: 1rem 0;
+  margin: 1rem 0 2rem;
   align-items: center;
 }
 
@@ -49,13 +56,13 @@ body {
   padding: 1em 2em;
   font-size: 1rem;
   line-height: 1.5rem;
-  letter-spacing: .12em;
+  letter-spacing: 0.12em;
   font-weight: 700;
   color: #fff;
   text-align: center;
   text-transform: uppercase;
   background-color: #007cbb;
-  border-radius: .125rem;
+  border-radius: 0.125rem;
   border: 1px solid #0077b7;
   cursor: pointer;
 }

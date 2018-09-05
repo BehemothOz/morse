@@ -23,7 +23,7 @@ let renderTableSymbols = (symbols) => {
 let renderActionBlock = () => {
   return `<div class="action-code">
             <button class="button">Click</button>
-            <div class="output">Output to result</div>
+            <div class="output">Output: <span></span></div>
           </div>`;
 }
 
